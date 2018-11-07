@@ -10,7 +10,7 @@
     "prepublishOnly": "npm test",
     "example": "WATCH=1 EXAMPLE=1 webpack-dev-server --port=10000 --hot",
     "build:webpack": "rimraf dist && webpack -p",
-    "build:example": "rimraf dist && EXAMPLE=1 webpack -p",
+    "build:example": "rimraf public && EXAMPLE=1 webpack -p",
     "build": "rimraf lib && babel src/ -Dd lib",
     "dev": "npm run build -- -w",
     "version": "npm run changelog",
@@ -19,7 +19,10 @@
   "files": [
     "dist",
     "src",
-    "lib"
+    "lib",
+    "index.js",
+    "index.d.ts",
+    "standalone.js"
   ],
   "husky": {
     "hooks": {
