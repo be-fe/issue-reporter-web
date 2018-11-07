@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "main": "index.js",
   "unpkg": "dist/issue-reporter-web.umd.js",
+  "cdn": "dist/issue-reporter-web.umd.js",
   "description": "The issue reporter integrated with ui.",
   "author": "imcuttle <moyuyc95@gmail.com>",
   "scripts": {
@@ -24,8 +25,7 @@
     "lib",
     "index.js",
     "index.d.ts",
-    "standalone.js",
-    "standalone.less"
+    "standalone.*"
   ],
   "husky": {
     "hooks": {
@@ -36,6 +36,9 @@
   "sideEffects": false,
   "keywords": [
     "imcuttle",
+    "standalone",
+    "preact",
+    "react",
     "issue",
     "reporter",
     "web",

@@ -35,8 +35,11 @@ class CopyEnvInfo extends React.Component {
     envInfo: PropTypes.oneOfType([
       PropTypes.func,
       PropTypes.shape({
-        spaceId: PropTypes.string,
-        url: PropTypes.string
+        $openUrl: PropTypes.string,
+        url: PropTypes.string,
+        browser: PropTypes.string,
+        browserVersion: PropTypes.string,
+        os: PropTypes.string
       })
     ]),
     onAfterText: PropTypes.func,
