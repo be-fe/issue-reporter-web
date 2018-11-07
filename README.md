@@ -155,11 +155,34 @@ React 组件的 Props
 - Type: `(text: string, envInfo: object) => void 0`
 
 - Example
+
   ```javascript
   ;(text, env) => {
     Object.assign(env, {
       $openUrl: 'http://example.com/new/issue?body=' + encodeURIComponent(text)
     })
+  }
+  ```
+
+#### `language`
+
+使用 [@rcp/hoc.i18n](https://github.com/imcuttle/rcp) 做组件国际化
+
+- Type: `'en-us'|'zh-cn'`
+- Default: `'en-us'`
+
+#### `locale`
+
+运行外部设置国际化字典
+
+- Type: `{}`
+- Example:
+  ```
+  {
+    'copy.null.template': '不存在需要复制的文本模板',
+    'copy.fail': '复制失败',
+    'copy.success': '复制成功',
+    'issue.report': '发现 Bug'
   }
   ```
 
