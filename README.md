@@ -173,7 +173,7 @@ React 组件的 Props
 
 #### `locale`
 
-运行外部设置国际化字典
+允许外部设置国际化字典
 
 - Type: `{}`
 - Example:
