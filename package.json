@@ -1,0 +1,102 @@
+{
+  "name": "issue-reporter-web",
+  "version": "0.0.0",
+  "main": "index.js",
+  "description": "The issue reporter integrated with ui.",
+  "author": "imcuttle <moyuyc95@gmail.com>",
+  "scripts": {
+    "test": "jest",
+    "prepublishOnly": "npm test",
+    "example": "WATCH=1 EXAMPLE=1 webpack-dev-server --port=10000 --hot",
+    "build:webpack": "rimraf dist && webpack -p",
+    "build": "rimraf lib && babel src/ -Dd lib",
+    "dev": "npm run build -- -w",
+    "doc": "documentation --github --markdown-toc=false readme index.js -a public -s \"API\" && git add README.md",
+    "version": "npm run doc && npm run changelog",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged",
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
+    }
+  },
+  "sideEffects": false,
+  "keywords": [
+    "imcuttle",
+    "issue",
+    "reporter",
+    "web",
+    "issue-reporter-web"
+  ],
+  "typings": "index.d.ts",
+  "license": "MIT",
+  "repository": "be-fe/issue-reporter-web",
+  "jest": {
+    "testMatch": [
+      "**/__test{s,}__/*.(spec|test).{t,j}s{x,}",
+      "**/__test{s,}__/*/*.(spec|test).{t,j}s{x,}"
+    ],
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "dependencies": {
+    "@rcp/hoc.i18n": "^1.0.10",
+    "await-event-emitter": "^1.1.3",
+    "copy-text-to-clipboard": "^1.0.4",
+    "detect-browser": "^3.0.1",
+    "lodash.template": "^4.4.0",
+    "react-notify-toast": "^0.5.0",
+    "react-pizza": "^0.1.2"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^7.2.1",
+    "@commitlint/config-conventional": "^7.1.2",
+    "@types/jest": "^23.3.9",
+    "autoprefixer": "^9.3.1",
+    "babel-cli": "^6.26.0",
+    "babel-jest": "^23.6.0",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-add-module-exports": "^1.0.0",
+    "babel-plugin-module-resolver": "^3.1.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "conventional-changelog-cli": "^2.0.11",
+    "css-loader": "^1.0.1",
+    "cssnano": "^4.1.7",
+    "documentation": "^8.1.2",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^1.1.3",
+    "jest": "^23.6.0",
+    "less": "^3.8.1",
+    "less-loader": "^4.1.0",
+    "lodash.capitalize": "^4.2.1",
+    "new-github-issue-url": "^0.1.2",
+    "postcss": "^7.0.5",
+    "postcss-loader": "^3.0.0",
+    "preact": "^8.3.1",
+    "preact-compat": "^3.18.4",
+    "prettier": "^1.14.3",
+    "pretty-quick": "^1.8.0",
+    "prop-types": "^15.6.2",
+    "react": "^16.6.1",
+    "react-dom": "^16.6.1",
+    "rimraf": "^2.6.2",
+    "style-loader": "^0.23.1",
+    "url-loader": "^1.1.2",
+    "webpack": "^4.25.1",
+    "webpack-bundle-analyzer": "^3.0.3",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  }
+}
