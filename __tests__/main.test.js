@@ -42,7 +42,7 @@ describe('issueReporterWeb', function() {
     await delay()
     expect(document.querySelector('#notification-wrapper').textContent).toBe('Copied')
     expect(copy).lastCalledWith(
-      'Environments:\n' + '- URL: http://localhost/\n' + '- OS: Mac OS\n' + '- Browser: chrome 70.0.3538\n'
+      '**Environments**:\n' + '- URL: http://localhost/\n' + '- OS: Mac OS\n' + '- Browser: chrome 70.0.3538\n'
     )
   })
 

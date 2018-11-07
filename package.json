@@ -22,7 +22,8 @@
     "lib",
     "index.js",
     "index.d.ts",
-    "standalone.js"
+    "standalone.js",
+    "standalone.less"
   ],
   "husky": {
     "hooks": {

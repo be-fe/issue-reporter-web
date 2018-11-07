@@ -6,7 +6,7 @@
  */
 
 const reporterRender = require('./standalone')
-require('./src/style.less')
+require('./standalone.less')
 
 const newGitHubIssue = require('new-github-issue-url')
 

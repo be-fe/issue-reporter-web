@@ -15,7 +15,7 @@ function conf({ define, isBuild, globalObject, watch, externals, mini, suffix = 
   return {
     name: filename,
     mode: NODE_ENV,
-    entry: isExample ? './example.js' : ['./standalone.js', './src/style.less'],
+    entry: isExample ? './example.js' : ['./standalone.js', './standalone.less'],
     target: format === 'commonjs2' ? 'node' : 'web',
     externals:
       format === 'commonjs2'
