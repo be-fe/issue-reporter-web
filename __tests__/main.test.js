@@ -42,7 +42,19 @@ describe('issueReporterWeb', function() {
     await delay()
     expect(document.querySelector('#notification-wrapper').textContent).toBe('Copied')
     expect(copy).lastCalledWith(
-      '**Environments:**:\n' + '- URL: http://localhost/\n' + '- OS: Mac OS\n' + '- Browser: chrome 70.0.3538\n'
+      '**Environments:**\n' + '- URL: http://localhost/\n' + '- OS: Mac OS\n' + '- Browser: chrome 70.0.3538\n'
+    )
+  })
+
+  it('issueReporter click copy `language = zh-CN`', async function() {
+    copy.setImpl(() => true)
+    copy.mockClear()
+    issueReporterRender('#root', { language: 'zh-cn' })
+    click('.copy-env-info-btn button')
+    await delay()
+    expect(document.querySelector('#notification-wrapper').textContent).toBe('复制成功')
+    expect(copy).lastCalledWith(
+      '**Environments:**\n' + '- URL: http://localhost/\n' + '- OS: Mac OS\n' + '- Browser: chrome 70.0.3538\n'
     )
   })
 

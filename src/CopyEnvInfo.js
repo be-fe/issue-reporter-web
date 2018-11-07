@@ -30,7 +30,7 @@ const createNotifyContainer = () => {
 
 class CopyEnvInfo extends React.Component {
   static propTypes = {
-    templateString: PropTypes.string,
+    templateString: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     shouldCopy: PropTypes.bool,
     envInfo: PropTypes.oneOfType([
       PropTypes.func,
@@ -121,7 +121,11 @@ class CopyEnvInfo extends React.Component {
   }
 
   getText(env) {
-    return template(this.props.templateString)(env)
+    let templateString = this.props.templateString
+    if (typeof this.props.templateString === 'function') {
+      templateString = this.props.templateString()
+    }
+    return template(templateString)(env)
   }
 
   copyValue = async () => {
