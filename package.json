@@ -9,6 +9,7 @@
     "prepublishOnly": "npm test",
     "example": "WATCH=1 EXAMPLE=1 webpack-dev-server --port=10000 --hot",
     "build:webpack": "rimraf dist && webpack -p",
+    "build:example": "rimraf dist && EXAMPLE=1 webpack -p",
     "build": "rimraf lib && babel src/ -Dd lib",
     "dev": "npm run build -- -w",
     "doc": "documentation --github --markdown-toc=false readme index.js -a public -s \"API\" && git add README.md",

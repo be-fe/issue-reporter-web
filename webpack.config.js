@@ -37,7 +37,7 @@ function conf({ define, isBuild, globalObject, watch, externals, mini, suffix = 
         : externals,
     output: {
       globalObject,
-      path: path.resolve(__dirname, 'dist'),
+      path: isExample ? path.resolve(__dirname, 'public') : path.resolve(__dirname, 'dist'),
       filename,
       library: !isExample
         ? {
