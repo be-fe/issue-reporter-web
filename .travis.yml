@@ -11,9 +11,8 @@ cache:
   directories:
     - node_modules
 
-    #install:
-    # - npm install
-
+jobs:
+  include:
     - stage: Document deploy
       allow_failure: true
       script: npm run build:example
