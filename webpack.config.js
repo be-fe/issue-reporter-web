@@ -9,13 +9,13 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const watch = !!process.env.WATCH
 const isExample = !!process.env.EXAMPLE
 
-function conf({ define, isBuild, globalObject, watch, externals, mini, suffix = '', format } = {}) {
+function conf({ define, isBuild, entry, globalObject, watch, externals, mini, suffix = '', format } = {}) {
   const NODE_ENV = isBuild ? 'production' : 'development'
   const filename = `${name}${suffix}.${format}${mini ? '.min' : ''}.js`
   return {
     name: filename,
     mode: NODE_ENV,
-    entry: isExample ? './example.js' : ['./standalone.js', './standalone.less'],
+    entry: entry ? entry : isExample ? './example.js' : ['./standalone.js'],
     target: format === 'commonjs2' ? 'node' : 'web',
     externals:
       format === 'commonjs2'
@@ -41,7 +41,9 @@ function conf({ define, isBuild, globalObject, watch, externals, mini, suffix = 
       filename,
       library: !isExample
         ? {
-            root: capitalize(name),
+            root: name.replace(/^([a-z])|(?:-([a-z]))/gi, (m, headLetter, letter) =>
+              (headLetter || letter).toUpperCase()
+            ),
             amd: name,
             commonjs: name
           }
