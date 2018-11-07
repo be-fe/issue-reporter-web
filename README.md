@@ -9,6 +9,8 @@
 
 > The issue reporter integrated with ui.
 
+![](https://i.loli.net/2018/11/08/5be30de897e96.png)
+
 [Live Demo](http://eux.baidu.com/issue-reporter-web/)
 
 ## Installation
