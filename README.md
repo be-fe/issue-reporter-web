@@ -142,6 +142,7 @@ React 组件的 Props
 在整合了数据后，触发 `transformEnv` 方法，一般用来转换 `envInfo`
 
 - Example
+
   ```
   env => Object.assign(env, { name: 'imcuttle' })
   ```
@@ -177,6 +178,7 @@ React 组件的 Props
 
 - Type: `{}`
 - Example:
+
   ```
   {
     'copy.null.template': '不存在需要复制的文本模板',
@@ -193,6 +195,7 @@ React 组件的 Props
 赋值给 `envInfo`，与 `props.envInfo` 的区别是，其优先级较低。
 
 - Example
+
   ```javascript
   reporterRef.assignEnvInfo({ name: 'imcuttle' })
   ```
@@ -202,6 +205,7 @@ React 组件的 Props
 重置 `envInfo`
 
 - Example
+
   ```javascript
   reporterRef.setEnvInfo({ name: 'imcuttle' })
   ```
@@ -216,10 +220,13 @@ React 组件的 Props
 
 ### `hooks`
 
-为了方便外部扩展，提供了钩子，使用如下
+为了方便外部扩展，使用 [await-event-emitter](https://github.com/imcuttle/node-await-event-emitter) 提供了钩子，使用如下
 
 ```javascript
 reporterRef.hooks.once('text', ({ text, env }) => {
+  // ...
+})
+reporterRef.hooks.on('text', ({ text, env }) => {
   // ...
 })
 ```
@@ -228,11 +235,23 @@ reporterRef.hooks.once('text', ({ text, env }) => {
 
 #### `env`
 
+**异步钩子**
+
 在获取完整环境变量后触发
 
 - `env` (`{}`): 环境变量集合
+- Example:
+
+  ```javascript
+  reporterRef.hooks.on('env', async env => {
+    // Yield for something
+    await tick()
+  })
+  ```
 
 #### `text`
+
+**同步钩子**
 
 在生成报告文本后触发
 
