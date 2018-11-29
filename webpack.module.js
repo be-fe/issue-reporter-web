@@ -4,6 +4,7 @@
  * @date 2018/11/7
  *
  */
+const nps = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const postcssLoader = {
@@ -30,9 +31,11 @@ module.exports = {
     {
       test: /\.jsx?$/,
       include: [__dirname],
-      exclude: [/node_modules/],
+      // exclude: [],
       loader: 'babel-loader',
       options: {
+        extends: nps.join(__dirname, '.babelrc'),
+        babelrc: false,
         plugins: [
           // ['transform-react-jsx', { pragma: 'React.h' }],
           [
