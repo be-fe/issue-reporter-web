@@ -60,7 +60,7 @@ function conf({ define, isBuild, entry, globalObject, watch, externals, mini, su
         'react-dom-factories': 'preact-compat/lib/react-dom-factories'
       }
     },
-    devtool: 'cheap-source-map',
+    devtool: 'source-map',
     module: require('./webpack.module'),
     plugins: [
       isExample &&

@@ -200,4 +200,4 @@ const I18nCopyEnvInfo = i18n({
 
 I18nCopyEnvInfo.i18n.setLanguage('en-US')
 
-export default I18nCopyEnvInfo
+module.exports = I18nCopyEnvInfo

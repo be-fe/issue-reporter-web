@@ -31,7 +31,7 @@ module.exports = {
     {
       test: /\.jsx?$/,
       include: [__dirname],
-      // exclude: [],
+      exclude: [/node_modules\/core-js/, /node_modules\/babel-runtime/],
       loader: 'babel-loader',
       options: {
         extends: nps.join(__dirname, '.babelrc'),
