@@ -7,7 +7,7 @@
           "node": "6",
           "browsers": ["last 2 versions"]
         },
-        "exclude": ["transform-regenerator"],
+//        "exclude": ["transform-regenerator"],
         "loose": true,
         "useBuiltIns": true
       }
@@ -17,7 +17,6 @@
     ]
   ],
   "plugins": [
-    "transform-async-to-generator",
     // "transform-decorators-legacy",
     "add-module-exports",
     "transform-class-properties",
