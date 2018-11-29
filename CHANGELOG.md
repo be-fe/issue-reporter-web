@@ -1,6 +1,14 @@
+<a name="0.0.2"></a>
+
+## [0.0.2](https://github.com/be-fe/issue-reporter-web/compare/v0.0.1...v0.0.2) (2018-11-29)
+
+### Bug Fixes
+
+- support ie 11 ([2024040](https://github.com/be-fe/issue-reporter-web/commit/2024040))
+
 <a name="0.0.1"></a>
 
-## 0.0.1 (2018-11-29)
+## [0.0.1](https://github.com/be-fe/issue-reporter-web/compare/badc1f5...v0.0.1) (2018-11-29)
 
 ### Bug Fixes
 
