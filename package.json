@@ -1,6 +1,6 @@
 {
   "name": "issue-reporter-web",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "index.js",
   "unpkg": "dist/issue-reporter-web.umd.js",
   "cdn": "dist/issue-reporter-web.umd.js",
