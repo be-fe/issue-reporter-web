@@ -123,6 +123,15 @@ React 组件的 Props
   }
   ```
 
+#### `shouldOpenUrlInSameWindow`
+
+`>=0.1.0`
+
+是否在同一个窗口中打开 $openUrl
+
+- Type: `boolean`
+- Default: `true`
+
 #### `shouldCopy`
 
 是否复制最终的报告文本

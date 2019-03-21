@@ -44,7 +44,8 @@ class CopyEnvInfo extends React.Component {
     ]),
     onAfterText: PropTypes.func,
     transformEnv: PropTypes.func,
-    openUrlDelayMsWhenCopied: PropTypes.number
+    openUrlDelayMsWhenCopied: PropTypes.number,
+    shouldOpenUrlInSameWindow: PropTypes.bool
   }
 
   static defaultProps = {
@@ -56,7 +57,8 @@ class CopyEnvInfo extends React.Component {
       '- Browser: ${browser} ${browserVersion}',
       '${ error ? "- Error: `" + error + "`" : "" }'
     ].join('\n'),
-    openUrlDelayMsWhenCopied: 1000
+    openUrlDelayMsWhenCopied: 1000,
+    shouldOpenUrlInSameWindow: true
   }
 
   componentDidMount() {
@@ -131,6 +133,8 @@ class CopyEnvInfo extends React.Component {
     return template(templateString)(env)
   }
 
+  issueWindow = null
+
   copyValue = async () => {
     const { templateString, shouldCopy } = this.props
 
@@ -149,7 +153,12 @@ class CopyEnvInfo extends React.Component {
     const lazyOpen = () => {
       env.$openUrl &&
         setTimeout(() => {
-          window.open(env.$openUrl)
+          if (this.issueWindow && !this.issueWindow.closed && this.props.shouldOpenUrlInSameWindow) {
+            this.issueWindow.location.href = env.$openUrl
+            this.issueWindow.focus()
+            return
+          }
+          this.issueWindow = window.open(env.$openUrl)
         }, this.props.openUrlDelayMsWhenCopied)
     }
 
