@@ -10,7 +10,7 @@ require('./standalone.less')
 
 const newGitHubIssue = require('new-github-issue-url')
 
-const reporter = reporterRender(window.root, { shouldCopy: true, shouldOpenUrlInSameWindow: false })
+const reporter = reporterRender(window.root, { shouldCopy: true, shouldOpenUrlInSameWindow: true })
 
 reporter.setProps({
   onAfterText(text, env) {

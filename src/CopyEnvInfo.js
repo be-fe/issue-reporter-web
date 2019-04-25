@@ -11,6 +11,7 @@ import { defaults } from 'react-notify-toast/bin/defaults'
 import { createPortal } from 'react-dom'
 import copy from 'copy-text-to-clipboard'
 import template from 'lodash.template'
+import openOneWindow from 'open-one-window'
 import i18n from '@rcp/hoc.i18n'
 import AwaitEventEmitter from 'await-event-emitter'
 
@@ -133,7 +134,7 @@ class CopyEnvInfo extends React.Component {
     return template(templateString)(env)
   }
 
-  issueWindow = null
+  issueWindow = openOneWindow()
 
   copyValue = async () => {
     const { templateString, shouldCopy } = this.props
@@ -153,12 +154,11 @@ class CopyEnvInfo extends React.Component {
     const lazyOpen = () => {
       env.$openUrl &&
         setTimeout(() => {
-          if (this.issueWindow && !this.issueWindow.closed && this.props.shouldOpenUrlInSameWindow) {
-            this.issueWindow.location.href = env.$openUrl
-            this.issueWindow.focus()
-            return
+          if (this.props.shouldOpenUrlInSameWindow) {
+            this.issueWindow.open(env.$openUrl)
+          } else {
+            window.open(env.$openUrl)
           }
-          this.issueWindow = window.open(env.$openUrl)
         }, this.props.openUrlDelayMsWhenCopied)
     }
 
